@@ -1,19 +1,26 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import {AngularFireModule} from '@angular/fire/compat'
+//import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {AngularFirestoreModule} from '@angular/fire/compat/firestore'
+import { environment } from '../environments/environment';
+import { TodoComponent } from './todo/todo.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [
-    provideClientHydration()
+    
   ],
   bootstrap: [AppComponent]
 })
